@@ -10,15 +10,16 @@ async function MainNavbar() {
         <div className="flex items-center gap-5 text-black">
           {session && session?.user ? (
             <>
-
               <Link href="/startup/create">
                 <span>Create</span>
               </Link>
-              
-              <form action={async () => {
-                'use server'
-                await signOut({redirectTo : '/'});
-              }}>
+
+              <form
+                action={async () => {
+                  "use server";
+                  await signOut({ redirectTo: "/" });
+                }}
+              >
                 <button type="submit">
                   <span>Sign Out</span>
                 </button>
@@ -28,12 +29,12 @@ async function MainNavbar() {
               </Link>
             </>
           ) : (
-            <form action={
-              async () => {
-                "use server"
-                await signIn('github');
-              }
-            }>
+            <form
+              action={async () => {
+                "use server";
+                await signIn("github");
+              }}
+            >
               <button type="submit">
                 <span>Sign In</span>
               </button>
@@ -46,5 +47,3 @@ async function MainNavbar() {
 }
 
 export default MainNavbar;
-
-          
