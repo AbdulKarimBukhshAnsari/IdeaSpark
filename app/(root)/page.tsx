@@ -1,6 +1,7 @@
-import Image from "next/image";
+import SearchForm from "@/components/SearchForm/SearchForm";
 
-export default function Home() {
+export default async function Home({searchParams}: {searchParams: Promise<{query?: string}>}) {
+  const queryParams = (await searchParams).query ;
   return (
     <>
       <section
@@ -21,6 +22,7 @@ export default function Home() {
           Join our community of innovative thinkers and bring your ideas to
           life.
         </p>
+        <SearchForm query={queryParams} />
       </section>
     </>
   );
